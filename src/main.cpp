@@ -3,6 +3,7 @@
 #include <Game.hpp>
 #include <Constants.hpp>
 #include <Player.hpp>
+#include <iostream>
 
 int main()
 {

@@ -5,7 +5,6 @@
 
 #include <chrono>
 #include <memory>
-#include <thread>
 #include <vector>
 #include <SDL2/SDL.h>
 #include <Entity.hpp>
@@ -53,8 +52,6 @@ public:
 private:
     Uint32 lastFrameTime = 0;
     bool isRunning = false;
-
-    mutable std::thread tSpawner;
 
     std::vector<std::unique_ptr<Entity>> entities;
 

@@ -1,22 +1,6 @@
 #include <Game.hpp>
 #include <Constants.hpp>
 
-void executeBackgroundTasks(std::vector<Task> *newTasks, Game *game)
-{
-    while (game->getIsRunning())
-    {
-        for (auto &task : *newTasks)
-        {
-            auto elapsed = duration_cast<milliseconds>(system_clock::now() - task.last_executed);
-            if (elapsed >= task.interval)
-            {
-                task.callback(game, &task);
-                task.last_executed = system_clock::now();
-            }
-        }
-    }
-}
-
 bool Game::init(const char *windowTitle,
                 const int xPos, const int yPos,
                 const int width, const int height)
@@ -34,8 +18,6 @@ bool Game::init(const char *windowTitle,
         SDL_WINDOW_SHOWN);
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
-    tSpawner = std::thread(executeBackgroundTasks, &tasks, this);
 
     isRunning = true;
     return true;
@@ -99,8 +81,6 @@ void Game::render()
 
 void Game::clean() const
 {
-    if (tSpawner.joinable())
-        tSpawner.join();
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
