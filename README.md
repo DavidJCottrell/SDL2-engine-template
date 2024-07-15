@@ -18,4 +18,4 @@
 
 ## Run
 
-`./TicTacToe`
+`./ExampleGame`
