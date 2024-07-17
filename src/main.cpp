@@ -1,9 +1,9 @@
 #include <SDL2/SDL.h>
 #include <random>
-#include <Game.hpp>
-#include <Constants.hpp>
-#include <Player.hpp>
-#include <iostream>
+
+#include "Game.hpp"
+#include "Constants.hpp"
+#include "Player.hpp"
 
 int main()
 {

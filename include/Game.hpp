@@ -7,10 +7,11 @@
 #include <memory>
 #include <vector>
 #include <SDL2/SDL.h>
-#include <Entity.hpp>
-#include <Player.hpp>
 
-struct Task;
+#include "Entity.hpp"
+#include "Player.hpp"
+#include "Constants.hpp"
+
 using namespace std::chrono;
 
 class Game
@@ -46,8 +47,6 @@ public:
     [[nodiscard]] Player *getPlayer() const;
 
     void endGame() { isRunning = false; }
-
-    std::vector<Task> tasks;
 
 private:
     Uint32 lastFrameTime = 0;

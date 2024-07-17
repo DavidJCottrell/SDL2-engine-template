@@ -3,21 +3,15 @@
 
 #pragma once
 
-#include <Utils.hpp>
-#include <Entity.hpp>
 #include <SDL2/SDL.h>
 #include <thread>
 #include <vector>
 #include <map>
 
-using namespace Utils::Geometry;
+#include "Utils.hpp"
+#include "Entity.hpp"
 
-enum WeaponType
-{
-    rifle,
-    shotgun,
-    uzi
-};
+using namespace Utils::Geometry;
 
 class Player final : public Entity
 {
@@ -35,14 +29,10 @@ public:
 
     void update(double deltaTime) override;
 
-    WeaponType weaponType = rifle;
-
 private:
     const int healthCapacity = 40;
 
     const float movementSpeed = 150.0f;
-
-    bool isCollidingWithWall(Vector2D potentialCoordinates) const;
 
     std::vector<SDL_Keycode> currentHeldKeys;
 

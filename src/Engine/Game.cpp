@@ -1,5 +1,4 @@
-#include <Game.hpp>
-#include <Constants.hpp>
+#include "Game.hpp"
 
 bool Game::init(const char *windowTitle,
                 const int xPos, const int yPos,
